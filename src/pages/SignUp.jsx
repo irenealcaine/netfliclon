@@ -1,6 +1,29 @@
 import React from 'react'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { UserAuth } from '../context/AuthContext'
 
 const SignUp = () => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+
+  const { user, signUp } = UserAuth()
+  const navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+    try {
+      await signUp(email, password)
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+      setError(error.message)
+    }
+  }
+
   return (
     <>
       <div className='w-full h-screen'>
@@ -10,20 +33,35 @@ const SignUp = () => {
           <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
             <div className="max-w-[320px] mx-auto py-16">
               <h1 className="text-3xl font-bold">Regístrate</h1>
-              <form className='w-ful flex flex-col py-4'>
+              {error ? <p className='p-3 border-2 border-red-600 text-red-600 my-2 font-bold rounded'>{error}</p> : null}
+              <form
+                onSubmit={handleSubmit}
+                className='w-ful flex flex-col py-4'
+              >
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder='Email'
                   autoComplete='email'
                   className='p-3 my-2 bg-gray-700 rounded'
                 />
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type='password'
                   placeholder='Contraseña'
                   autoComplete='current-password'
                   className='p-3 my-2 bg-gray-700 rounded'
                 />
                 <button className='bg-red-600 py-3 my-6 px-6 rounded font-bold'>Resgístrate</button>
+                <div className="flex justify-between items-center text-sm text-gray-600">
+                  <p className=""><input type="checkbox" className="mr-2" />Recordar constraseña</p>
+                  <p className="">Ayuda</p>
+                </div>
+                <p className="py-8"><span className="text-gray-600">¿Ya tienes cuenta? </span>
+                  <Link to='/login'>
+                    Inicia sesión
+                  </Link>
+                </p>
               </form>
             </div>
           </div>
