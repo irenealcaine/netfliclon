@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import requests from '../Requests'
 
 const Main = () => {
@@ -36,7 +37,7 @@ const Main = () => {
             <button className='border text-white border-gray-300 py-2 px-5 rounded ml-4'>Ver mas tarde</button>
           </div>
           <p className="text-gray-400 text-sm">Estreno: {movie?.release_date}</p>
-          <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200">{truncateString(movie?.overview, 200)}</p>
+          <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] text-gray-200">{truncateString(movie?.overview, 150)} <Link to={`/details/${movie?.id}`} id={movie?.id} className='text-xs text-gray-400 border border-gray-400 p-[3px] rounded'>Leer mas</Link></p>
         </div>
       </div>
     </div>
