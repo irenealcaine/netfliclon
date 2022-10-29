@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { } from 'react-icons/'
 
 const NavBar = () => {
   const { user, logOut } = UserAuth()
@@ -25,9 +27,9 @@ const NavBar = () => {
 
       {user?.email ? (
         <>
-          <div className='text-white md:hidden absolute top-4 right-4' onClick={() => { setOpen(!open) }}>{open ? 'x' : '||'}</div>
+          <div className='text-white bg-black/40 rounded p-1 md:hidden absolute top-4 right-4 text-xl' onClick={() => { setOpen(!open) }}>{open ? <AiOutlineClose /> : <AiOutlineMenu />}</div>
           <div className={`${open ? '' : 'hidden'} md:flex`}>
-            <div className={`flex flex-col md:flex-row md:items-center md:mt-0 mt-2`}>
+            <div className={`flex flex-col md:flex-row md:items-center mt-0`}>
               <Link to='/account'>
                 <button className='border md:border-0 px-6 py-2 rounded md:pr-4 cursor-pointer text-white mb-1 md:mb-0 w-full '>Cuenta</button>
               </Link>

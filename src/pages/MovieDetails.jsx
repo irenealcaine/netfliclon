@@ -39,10 +39,10 @@ const MovieDetails = () => {
 
     <div className='w-full h-screen text-white'>
       <div className="w-full h-full">
-        <div className="absolute w-full h-screen bg-gradient-to-r from-black to-black/50" />
-        <img className='h-full w-full object-cover' src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} alt='título' onError={imageOnErrorHandler} />
-        <div className="absolute w-full top-[15%] p-4 md:p-8 flex flex-col md:flex-row items-center">
-          <img src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="7" className='md:w-1/4 w-0 md:mr-8 mr-0' />
+        <div className="absolute w-full h-[550px] bg-gradient-to-t from-black to-black/30" />
+        <img className='h-[550px] w-full object-cover' src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} alt='título' onError={imageOnErrorHandler} />
+        <div className="absolute w-full top-[20%] p-4 md:p-8 flex flex-col md:flex-row items-center">
+          <img src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="7" className='md:w-1/4 w-0 md:mr-8 mr-0 rounded-xl shadow-2xl' />
           <div>
             <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
             <h1 className="text-lg md:text-2xl font-bold">{movie?.tagline}</h1>
@@ -56,9 +56,9 @@ const MovieDetails = () => {
               <p>{movie?.genres[i].name}</p>
             ))}
           </p> */}
-            <p className="text-gray-500 text-sm">Estreno: <span className='text-gray-400 font-bold'>{movie?.release_date}</span></p>
+            <p className='text-sm text-gray-400 font-bold'>{movie?.release_date}</p>
 
-            <p className="text-gray-500 text-sm">Duración: <span className='text-gray-400 font-bold'>{Math.floor(movie?.runtime / 60)}h {movie?.runtime - (Math.floor(movie?.runtime / 60)) * 60}min</span></p>
+            <p className='text-sm text-gray-400 font-bold'>{Math.floor(movie?.runtime / 60)}h {movie?.runtime - (Math.floor(movie?.runtime / 60)) * 60}min</p>
             <p className="">{movie?.vote_average}/10 ({movie?.vote_count} votos)</p>
           </div>
         </div>
