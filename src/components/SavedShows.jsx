@@ -53,15 +53,15 @@ const SavedShows = () => {
         Mis favoritos
       </h2>
       <div className="relative flex items-center group">
-        {/* <MdChevronLeft
+        <MdChevronLeft
           size={40}
           className='bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block left-0'
           onClick={slideLeft}
-        /> */}
+        />
         <div
           id={'slider'}
-          // className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
-          className='flex flex-wrap'
+          className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
+        // className='flex flex-wrap'
         >
           {movies.map((item, id) => (
             <div key={id} className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2">
@@ -82,12 +82,12 @@ const SavedShows = () => {
             </div>
           ))}
         </div>
-        {/* <MdChevronRight
+        <MdChevronRight
           size={40}
           className='bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block right-0'
           onClick={slideRight}
 
-        /> */}
+        />
       </div>
     </>
   )

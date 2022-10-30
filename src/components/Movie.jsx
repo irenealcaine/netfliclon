@@ -15,6 +15,7 @@ const Movie = ({ item }) => {
   };
 
   const [like, setLike] = useState(false)
+  // eslint-disable-next-line no-unused-vars
   const [saved, setSaved] = useState(false)
   const { user } = UserAuth()
 

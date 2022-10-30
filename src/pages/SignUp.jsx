@@ -9,6 +9,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
+  // eslint-disable-next-line no-unused-vars
   const { user, signUp } = UserAuth()
   const navigate = useNavigate()
 

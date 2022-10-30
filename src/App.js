@@ -3,7 +3,6 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthContextProvider } from "./context/AuthContext";
 import Account from "./pages/Account";
-import Details from "./pages/Details";
 import MovieDetails from './pages/MovieDetails.jsx'
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
