@@ -38,7 +38,7 @@ const NavBar = () => {
           </div>
         </>
       ) : (
-        <div className='md:visible hidden'>
+        <div className=''>
           <Link to='/login'>
             <button className=' pr-4 cursor-pointer text-white'>Iniciar sesión</button>
           </Link>
