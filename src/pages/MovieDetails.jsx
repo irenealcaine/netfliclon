@@ -57,7 +57,7 @@ const MovieDetails = () => {
               <p>{movie?.genres[i].name}</p>
             ))}
           </p> */}
-            <p className='text-sm text-gray-400 font-bold'>{movie?.release_date}</p>
+            <p className='text-sm text-gray-400 font-bold mt-4'>{movie?.release_date}</p>
 
             <p className='text-sm text-gray-400 font-bold'>{Math.floor(movie?.runtime / 60)}h {movie?.runtime - (Math.floor(movie?.runtime / 60)) * 60}min</p>
             <p className="">{movie?.vote_average}/10 ({movie?.vote_count} votos)</p>
