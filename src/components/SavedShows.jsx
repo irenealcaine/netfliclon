@@ -23,7 +23,7 @@ const SavedShows = () => {
 
   const imageOnErrorHandler = (event) => {
     event.currentTarget.src = placeholder;
-    event.currentTarget.className = "border border-red-600";
+    event.currentTarget.className = "border-2 border-red-600";
   }
 
   useEffect(() => {
@@ -44,8 +44,6 @@ const SavedShows = () => {
     }
   }
 
-  console.log(movies)
-
 
   return (
     <>
@@ -61,7 +59,6 @@ const SavedShows = () => {
         <div
           id={'slider'}
           className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
-        // className='flex flex-wrap'
         >
           {movies.map((item, id) => (
             <div key={id} className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] inline-block cursor-pointer relative p-2">
