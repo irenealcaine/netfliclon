@@ -4,7 +4,7 @@ const Video = () => {
   return (
     <div>
       <iframe
-        className='w-full h-screen md:p-16 p-10 pt-20  aspect-auto'
+        className='w-full h-screen md:p-16 p-10 pt-36'
         src="https://www.youtube.com/embed/G1IbRujko-A"
         title="Trailer"
       ></iframe>

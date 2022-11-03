@@ -22,9 +22,13 @@ const MovieDetails = () => {
   useEffect(() => {
     axios.get(requests.requestDetails).then((res) => {
       setMovie(res.data)
+      window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      });
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [id])
 
   const imageOnErrorHandler = (event) => {
     event.currentTarget.src = placeholder;
