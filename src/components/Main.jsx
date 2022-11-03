@@ -33,7 +33,9 @@ const Main = () => {
         <div className="absolute w-full top-[20%] p-4 md:p-8">
           <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
           <div className="my-4">
-            <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded'>Reproducir</button>
+            <Link to={`/details/video`}>
+              <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded'>Reproducir</button>
+            </Link>
             <button className='border text-white border-gray-300 py-2 px-5 rounded ml-4'>Ver mas tarde</button>
           </div>
           <p className="text-gray-400 text-sm">Estreno: {movie?.release_date}</p>

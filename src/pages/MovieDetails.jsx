@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import placeholder from '../images/placeholder.jpg'
 
 
@@ -48,7 +48,9 @@ const MovieDetails = () => {
             <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
             <h1 className="text-lg md:text-2xl font-bold">{movie?.tagline}</h1>
             <div className="my-4">
-              <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded'>Reproducir</button>
+              <Link to={`/details/video`}>
+                <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded'>Reproducir</button>
+              </Link>
               <button className='border text-white border-gray-300 py-2 px-5 rounded ml-4'>Ver mas tarde</button>
             </div>
             <p className="w-full md:max-w-[80%] lg:max-w-[70%] xl:max-w-[55%] text-gray-200 indent-8 text-justify">{movie?.overview}</p>

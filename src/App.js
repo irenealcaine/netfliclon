@@ -7,6 +7,7 @@ import MovieDetails from './pages/MovieDetails.jsx'
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import Video from "./pages/Video";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/account' element={<ProtectedRoute> <Account /></ProtectedRoute>} />
           <Route path='/details/:id' element={<MovieDetails />} />
+          <Route path='/details/video' element={<Video />} />
         </Routes>
       </AuthContextProvider>
     </>
