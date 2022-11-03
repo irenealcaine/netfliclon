@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import RowActors from '../components/RowActors'
+import RowSimilars from '../components/RowSimilars'
 import placeholder from '../images/placeholder.jpg'
 
 
@@ -52,7 +53,7 @@ const MovieDetails = () => {
             <p className='text-sm text-gray-400 font-bold'>{Math.floor(movie?.runtime / 60)}h {movie?.runtime - (Math.floor(movie?.runtime / 60)) * 60}min</p>
             <p className="mt-2">{movie?.vote_average}/10 ({movie?.vote_count} votos)</p>
             <RowActors rowID='1' title='Actores' fetchURL={requests.requestActors} />
-            {/* <RowSimilars rowID='2' title='Películas similares' fetchURL={requests.requestSimilars} /> */}
+            <RowSimilars rowID='2' title='Películas similares' fetchURL={requests.requestSimilars} />
           </div>
         </div>
 

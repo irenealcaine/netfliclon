@@ -12,7 +12,6 @@ const RowActors = ({ title, rowID, fetchURL }) => {
   useEffect(() => {
     axios.get(fetchURL).then((res) => {
       setActors(res.data.cast)
-      console.log(actors)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchURL])
