@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
+import placeholder from '../images/placeholder2.png'
 
 
 const RowActors = ({ title, rowID, fetchURL }) => {
@@ -25,6 +26,10 @@ const RowActors = ({ title, rowID, fetchURL }) => {
     let slider = document.getElementById('slider' + rowID)
     slider.scrollLeft = slider.scrollLeft + 500
   }
+  const imageOnErrorHandler = (event) => {
+    event.currentTarget.src = placeholder;
+    event.currentTarget.className = "border border-red-600 rounded-lg";
+  };
 
   return (
     <>
@@ -43,7 +48,12 @@ const RowActors = ({ title, rowID, fetchURL }) => {
         >
           {actors.map((actor) => (
             <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2'>
-              <img src={`https://image.tmdb.org/t/p/original${actor?.profile_path}`} alt="" className='w-full h-auto block rounded-lg' />
+              <img
+                src={`https://image.tmdb.org/t/p/original${actor?.profile_path}`}
+                alt=""
+                className='w-full h-auto block rounded-lg'
+                onError={imageOnErrorHandler}
+              />
               <p className='text-sm text-center font-bold truncate mt-2'>{actor.name}</p>
               <p className='text-sm text-gray-400 text-center truncate'>{actor.character}</p>
             </div>

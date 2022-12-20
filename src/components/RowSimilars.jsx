@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import placeholder from '../images/placeholder2.png'
 
 
 
@@ -30,6 +31,11 @@ const RowSimilars = ({ title, rowID, fetchURL }) => {
     slider.scrollLeft = slider.scrollLeft + 500
   }
 
+  const imageOnErrorHandler = (event) => {
+    event.currentTarget.src = placeholder;
+    event.currentTarget.className = "border border-red-600 rounded-lg";
+  };
+
   return (
     <>
       <h2 className="text-white font-bold md:text-xl p-4">
@@ -48,7 +54,12 @@ const RowSimilars = ({ title, rowID, fetchURL }) => {
           {similars.map((similar) => (
             <Link to={`/details/${similar?.id}`} id={similar?.id}>
               <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2'>
-                <img src={`https://image.tmdb.org/t/p/original${similar?.poster_path}`} alt="" className='w-full h-auto block rounded-lg' />
+                <img
+                  src={`https://image.tmdb.org/t/p/original${similar?.poster_path}`}
+                  alt=""
+                  className='w-full h-auto block rounded-lg'
+                  onError={imageOnErrorHandler}
+                />
                 <p className='text-sm text-center font-bold truncate mt-2'>{similar.title}</p>
               </div>
             </Link>
