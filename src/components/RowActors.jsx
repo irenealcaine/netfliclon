@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md'
 import placeholder from '../images/placeholder2.png'
+import { Link } from 'react-router-dom'
 
 
 const RowActors = ({ title, rowID, fetchURL }) => {
@@ -47,16 +48,18 @@ const RowActors = ({ title, rowID, fetchURL }) => {
           className="h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
         >
           {actors.map((actor) => (
-            <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2'>
-              <img
-                src={`https://image.tmdb.org/t/p/original${actor?.profile_path}`}
-                alt=""
-                className='w-full h-auto block rounded-lg'
-                onError={imageOnErrorHandler}
-              />
-              <p className='text-sm text-center font-bold truncate mt-2'>{actor.name}</p>
-              <p className='text-sm text-gray-400 text-center truncate'>{actor.character}</p>
-            </div>
+            <Link to={`/person/${actor?.id}`} id={actor?.id}>
+              <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2'>
+                <img
+                  src={`https://image.tmdb.org/t/p/original${actor?.profile_path}`}
+                  alt=""
+                  className='w-full h-auto block rounded-lg'
+                  onError={imageOnErrorHandler}
+                />
+                <p className='text-sm text-center font-bold truncate mt-2'>{actor.name}</p>
+                <p className='text-sm text-gray-400 text-center truncate'>{actor.character}</p>
+              </div>
+            </Link>
           ))}
         </div>
         <MdChevronRight
