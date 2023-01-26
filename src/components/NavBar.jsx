@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 // import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -25,9 +26,9 @@ const NavBar = () => {
         <h1 className='text-red-600 text-4xl font-black uppercase cursor-pointer'>Netfliclon</h1>
       </Link>
 
-      {user?.email ? (
+      {/* {user?.email ? (
         <>
-          {/* <div className='text-white bg-black/40 rounded p-1 md:hidden absolute top-4 right-4 text-xl' onClick={() => { setOpen(!open) }}>{open ? <AiOutlineClose /> : <AiOutlineMenu />}</div> */}
+          <div className='text-white bg-black/40 rounded p-1 md:hidden absolute top-4 right-4 text-xl' onClick={() => { setOpen(!open) }}>{open ? <AiOutlineClose /> : <AiOutlineMenu />}</div>
           <div className={`md:flex`}>
             <div className={`flex flex-col md:flex-row md:items-center mt-0`}>
               <Link to='/account'>
@@ -48,7 +49,7 @@ const NavBar = () => {
 
         </div>
       )
-      }
+      } */}
 
     </div >
   )
