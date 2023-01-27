@@ -13,7 +13,7 @@ const PersonDetails = () => {
   const key = process.env.REACT_APP_API_KEY
 
   const requests = {
-    requestActor: `https://api.themoviedb.org/3/person/${id}?api_key=${key}&language=es-ES`,
+    requestActor: `https://api.themoviedb.org/3/person/${id}?api_key=${key}&language=en-US`,
   }
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const PersonDetails = () => {
     <div className='w-full h-screen text-white'>
       <div className="w-full h-full">
         <div className="absolute w-full h-[550px] bg-gradient-to-t from-black to-black/30" />
-        {/* <img className='h-[550px] w-full object-cover' src={`https://image.tmdb.org/t/p/original${person?.profile_path}`} alt='título' onError={imageOnErrorHandler} /> */}
+        <img className='h-[550px] w-full object-cover' src={`https://image.tmdb.org/t/p/original${person?.profile_path}`} alt='título' onError={imageOnErrorHandler} />
         <div className="absolute w-full top-[20%] p-4 md:p-8 flex flex-col gap-4 md:flex-row items-start">
           <img src={`https://image.tmdb.org/t/p/original${person?.profile_path}`} alt="7" className='md:w-1/4 w-0 rounded-xl shadow-2xl top-4' onError={imageOnErrorHandler} />
           <div className='md:w-3/4 w-full'>
