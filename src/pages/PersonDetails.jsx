@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import RowActors from '../components/RowActors'
 import RowSimilars from '../components/RowSimilars'
 import placeholder from '../images/placeholder.jpg'
+import RowCredits from '../components/RowCredits'
 
 
 const PersonDetails = () => {
@@ -14,6 +15,7 @@ const PersonDetails = () => {
 
   const requests = {
     requestActor: `https://api.themoviedb.org/3/person/${id}?api_key=${key}&language=en-US`,
+    requestCredits: `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${key}&language=es-ES`
   }
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const PersonDetails = () => {
             <h1 className="text-3xl md:text-5xl font-bold">{person?.name}</h1>
             <p className='text-sm text-gray-400 font-bold mt-4'>{person?.birthday}</p>
             <p className='text-sm text-gray-400 font-bold mt-4'>{person?.place_of_birth}</p>
-            <p className="w-full md:max-w-[80%] lg:max-w-[70%] xl:max-w-[55%] text-gray-200 indent-8 text-justify mt-2">{person?.biography}</p>
+            <p className="w-full lg:max-w-[90%] xl:max-w-[80%] text-gray-200 indent-8 text-justify mt-2">{person?.biography}</p>
             {/* <h1 className="text-lg md:text-2xl font-bold">{movie?.tagline}</h1> */}
             {/* <div className="my-4 ">
               <Link to={`/details/video`}>
@@ -57,6 +59,7 @@ const PersonDetails = () => {
             {/* <p className="mt-2">{movie?.vote_average}/10 ({movie?.vote_count} votos)</p> */}
             {/* <RowActors rowID='1' title='Actores' fetchURL={requests.requestActors} /> */}
             {/* <RowSimilars rowID='2' title='Películas similares' fetchURL={requests.requestSimilars} /> */}
+            <RowCredits rowID='1' title='Participaciones en películas' fetchURL={requests.requestCredits} />
           </div>
         </div>
 
