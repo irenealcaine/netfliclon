@@ -15,8 +15,8 @@ const RowSimilars = ({ title, rowID, fetchURL }) => {
   useEffect(() => {
     axios.get(fetchURL).then((res) => {
       setSimilars(res.data.results)
-      console.log(res.data.results)
-      console.log(similars)
+      // console.log(res.data.results)
+      // console.log(similars)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchURL])

@@ -14,8 +14,8 @@ const RowCredits = ({ title, rowID, fetchURL }) => {
   useEffect(() => {
     axios.get(fetchURL).then((res) => {
       setCredits(res.data.cast)
-      console.log(res.data.cast)
-      console.log(credits)
+      // console.log(res.data.cast)
+      // console.log(credits)
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchURL])
@@ -48,11 +48,11 @@ const RowCredits = ({ title, rowID, fetchURL }) => {
         />
         <div
           id={'slider' + rowID}
-          className="h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
+          className="h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative flex align-top"
         >
           {credits.map((credit) => (
             <Link to={`/details/${credit?.id}`} id={credit?.id}>
-              <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2'>
+              <div className='w-[120px] md:w-[180px] h-auto inline-block cursor-pointer relative p-2 top-0'>
                 <img
                   src={`https://image.tmdb.org/t/p/original${credit?.poster_path}`}
                   alt=""
@@ -60,6 +60,7 @@ const RowCredits = ({ title, rowID, fetchURL }) => {
                   onError={imageOnErrorHandler}
                 />
                 <p className='text-sm text-center font-bold truncate mt-2'>{credit?.title}</p>
+                <p className='text-sm text-gray-400 text-center truncate'>{credit?.character}</p>
               </div>
             </Link>
           ))}

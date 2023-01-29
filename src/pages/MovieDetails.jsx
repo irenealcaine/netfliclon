@@ -41,7 +41,7 @@ const MovieDetails = () => {
         <div className="absolute w-full h-[550px] bg-gradient-to-t from-black to-black/30" />
         <img className='h-[550px] w-full object-cover' src={`https://image.tmdb.org/t/p/original${movie?.backdrop_path}`} alt='título' onError={imageOnErrorHandler} />
         <div className="absolute w-full top-[20%] p-4 md:p-8 flex flex-col gap-4 md:flex-row items-start">
-          <img src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="7" className='md:w-1/4 w-0 rounded-xl shadow-2xl top-4' />
+          <img src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="7" className='md:w-1/4 w-0 rounded-xl shadow-2xl top-4' onError={imageOnErrorHandler} />
           <div className='md:w-3/4 w-full'>
             <h1 className="text-3xl md:text-5xl font-bold">{movie?.title}</h1>
             <h1 className="text-lg md:text-2xl font-bold">{movie?.tagline}</h1>

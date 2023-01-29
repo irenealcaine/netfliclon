@@ -4,7 +4,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../context/AuthContext'
 // import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { } from 'react-icons/'
+
 
 const NavBar = () => {
   const { user, logOut } = UserAuth()
@@ -25,6 +25,11 @@ const NavBar = () => {
       <Link to='/'>
         <h1 className='text-red-600 text-4xl font-black uppercase cursor-pointer'>Netfliclon</h1>
       </Link>
+
+      <input
+        className='bg-transparent border-2 border-red-600/30 focus:border-red-600 rounded text-white px-2 py-1 focus:outline-none focus:bg-red-600/10'
+        placeholder={`🔎︎  Buscar película`}
+      />
 
       {/* {user?.email ? (
         <>
