@@ -1,8 +1,7 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import RowActors from '../components/RowActors'
-import RowSimilars from '../components/RowSimilars'
 import placeholder from '../images/placeholder.jpg'
 import RowCredits from '../components/RowCredits'
 
@@ -30,12 +29,6 @@ const PersonDetails = () => {
     })
     axios.get(requests.requestImages).then((response) => {
       setImages(response.data.profiles)
-      // console.log(response.data.profiles)
-      // console.log(images[1])
-      // window.scroll({
-      //   top: 0,
-      //   behavior: 'smooth'
-      // });
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
@@ -56,20 +49,6 @@ const PersonDetails = () => {
             <p className='text-sm text-gray-400 font-bold mt-4'>{person?.birthday} &nbsp; - &nbsp; {person.deathday ? `${person?.deathday}` : 'Presente'}</p>
             <p className='text-sm text-gray-400 font-bold mt-4'>{person?.place_of_birth}</p>
             <p className="w-full lg:max-w-[90%] xl:max-w-[80%] text-gray-200 indent-8 text-justify mt-2">{person?.biography}</p>
-            {/* <h1 className="text-lg md:text-2xl font-bold">{movie?.tagline}</h1> */}
-            {/* <div className="my-4 ">
-              <Link to={`/details/video`}>
-                <button className='border bg-gray-300 text-black border-gray-300 py-2 px-5 rounded mr-4'>Reproducir</button>
-              </Link>
-              <button className='border text-white border-gray-300 py-2 px-5 rounded mt-4 md:mt-0'>Ver mas tarde</button>
-            </div> */}
-
-
-
-            {/* <p className='text-sm text-gray-400 font-bold'>{Math.floor(movie?.runtime / 60)}h {movie?.runtime - (Math.floor(movie?.runtime / 60)) * 60}min</p> */}
-            {/* <p className="mt-2">{movie?.vote_average}/10 ({movie?.vote_count} votos)</p> */}
-            {/* <RowActors rowID='1' title='Actores' fetchURL={requests.requestActors} /> */}
-            {/* <RowSimilars rowID='2' title='Películas similares' fetchURL={requests.requestSimilars} /> */}
             <RowCredits rowID='1' title='Participaciones en películas' fetchURL={requests.requestCredits} />
           </div>
         </div>
